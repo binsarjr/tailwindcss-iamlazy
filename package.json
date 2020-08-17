@@ -1,0 +1,43 @@
+{
+    "name": "@binsarjr/tailwindui-iamlazy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./src/index.js",
+    "dependencies": {
+        "cross-env": "^7.0.2",
+        "laravel-mix": "^5.0.4",
+        "laravel-mix-purgecss": "^5.0.0",
+        "tailwindcss": "^1.4.6",
+        "tarball": "0.0.5"
+    },
+    "devDependencies": {
+        "sass": "^1.26.8",
+        "sass-loader": "^8.0.2"
+    },
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "keywords": [
+        "tailwind",
+        "tailwindcss",
+        "tailwindui",
+        "tailwind-plugins",
+        "iamlazy",
+        "binsarjr"
+    ],
+    "author": "Binsar Dwi Jasuma",
+    "license": "ISC",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/binsarjr/tailwindui-iamlazy"
+    }
+}
