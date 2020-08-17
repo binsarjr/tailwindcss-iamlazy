@@ -1,7 +1,7 @@
 public/dist/
+public/*
 !public/index.html
 !public/starter.html
-public/*
 node_modules/
 package-lock.json
 mix-manifest.json
