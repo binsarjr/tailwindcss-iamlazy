@@ -1,8 +1,10 @@
 # s
 <!-- <style>
 </style> -->
-![text](./../../public/dist/css/tailwind.css)
+![text](https://raw.githubusercontent.com/binsarjr/tailwindui-iamlazy/master/public/dist/css/tailwind.css)
 ![text]('./')
-<!-- <div class="btn btn-success">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/binsarjr/tailwindui-iamlazy/master/public/dist/css/tailwind.css">
+
+<div class="btn btn-success">
 Simpan
-</div> -->
+</div>
