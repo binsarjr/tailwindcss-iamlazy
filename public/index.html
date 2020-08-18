@@ -6,57 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwinds Components</title>
     <link rel="stylesheet" href="/dist/css/tailwind.css">
+    <style>
+        .shim-green {
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(0, 255, 0, 0.7);
+        }
+        
+        .shim-green::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            background-image: linear-gradient( 90deg, rgba(233, 233, 233, 1) 0, rgba(233, 233, 233, 0.9) 50%, rgba(233, 233, 233, 0.8) 100%);
+            animation: shimmer 2s ease-out infinite;
+            content: "";
+        }
+        
+        .shim-blue {
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(0, 155, 255, 0.7);
+        }
+        
+        .shim-blue::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            background-image: linear-gradient( 90deg, rgba(233, 233, 233, 1) 0, rgba(233, 233, 233, 0.9) 50%, rgba(233, 233, 233, 0.8) 100%);
+            animation: shimmer 2.5s ease-out infinite;
+            content: "";
+        }
+        
+        .shim-red {
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(255, 0, 0, 0.7);
+        }
+        
+        .shim-red::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            background-image: linear-gradient( 90deg, rgba(233, 233, 233, 1) 0, rgba(233, 233, 233, 0.9) 50%, rgba(233, 233, 233, 0.8) 100%);
+            animation: shimmer 3s ease-out infinite;
+            content: "";
+        }
+        
+        @keyframes shimmer {
+            100% {
+                transform: translateX(0%);
+                opacity: 0;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="p-10">
-    <div class="card card-bordered  card-no-shadow flex-none my-5">
-        <div class="card-header">ok sip</div>
-        <div class="card-body">
-            asd
-        </div>
-    </div>
-    <div class="card-horizontal my-5">
-        <div class="card-left">
-            <img src="https://cdn2.tstatic.net/travel/foto/bank/images/pink-beach-komodo-ntt.jpg" alt="" class="card-thumb">
-        </div>
-        <div class="card-right">
-            <div class="card-subtitle">
-                Travel
-            </div>
-            <div class="card-title">
-                Tanjung Tinggi
-            </div>
-            <div class="card-text">Tanjung tinggi adalah pantai yang diapit oleh dua semenanjung, yaitu tanjung Kelayang dan tanjung Pendam. Nama tanjung tinggi diambil dari kata tanjung yang artinya ...</div>
-        </div>
-    </div>
 
 
-    <div class="row my-5">
-        <div class="col bg-gray-500 flex items-center justify-center">.col</div>
-        <div class="col-1  bg-gray-500 flex items-center justify-center">.col-1</div>
-        <div class="col-5 lg:col-8  bg-gray-500 flex items-center justify-center">.col-5.lg:col-8 </div>
-        <div class="col-1  bg-gray-500 flex items-center justify-center">.col-1</div>
-    </div>
+
+
 
     <div class="my-5">
-        <div class="btn btn-primary btn-no-hover">Simpan</div>
-        <div class="btn btn-success">Simpan</div>
-        <div class="badge badge-success">Simpan</div>
-        <div class="dropdown whitespace-no-wrap">
-            <button class="dropdown-toggle btn btn-success">
-                Dropdown
-            </button>
-            <div class="dropdown-menu">
-                <a href="javascript:void(0)" class="dropdown-item">php</a>
-                <a href="javascript:void(0)" class="dropdown-item">python</a>
-                <a href="javascript:void(0)" class="dropdown-item">javascript</a>
+        <div class="p-10 flex flex-col space-y-3">
+            <div class="relative w-full sm:w-1/2 bg-gray-200 rounded">
+                <div style="width: 60%" class="absolute top-0 h-4 rounded shim-green"></div>
+            </div>
+            <div class="relative w-full sm:w-1/2 bg-gray-200 rounded">
+                <div style="width: 80%" class="absolute top-0 h-4 rounded shim-blue"></div>
+            </div>
+            <div class="relative w-full sm:w-1/2 bg-gray-200 rounded">
+                <div style="width: 100%" class="absolute top-0 h-4 rounded shim-red"></div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control">
-        </div>
     </div>
+
+    <script src="/js/iamlazy.js"></script>
+    <script>
+        /* Optional Javascript to close the radio button version by clicking it again */
+        var myRadios = document.getElementsByName('tabs2');
+        var setCheck;
+        var x = 0;
+        for (x = 0; x < myRadios.length; x++) {
+            myRadios[x].onclick = function() {
+                if (setCheck != this) {
+                    setCheck = this;
+                } else {
+                    this.checked = false;
+                    setCheck = null;
+                }
+            };
+        }
+    </script>
 </body>
 
 </html>
