@@ -6,11 +6,13 @@ module.exports = function({ addUtilities, addComponents, theme }) {
     const card = {
         '.card': {
             backgroundColor: backgroundColor['white'],
-            maxWidth: '24rem',
+            maxWidth: theme('maxWidth.sm'),
             borderRadius: borderRadius['default'],
             boxShadow: boxShadow['lg'],
             '.card-thumb': {
-                width: '100%'
+                width: '100%',
+                borderTopLeftRadius: borderRadius['default'],
+                borderTopRightRadius: borderRadius['default'],
             },
             '.card-header,.card-footer': {
                 backgroundColor: backgroundColor['gray']['100'],
@@ -24,6 +26,18 @@ module.exports = function({ addUtilities, addComponents, theme }) {
                 paddingBottom: theme('padding.3'),
                 paddingLeft: theme('padding.5'),
                 paddingRight: theme('padding.5'),
+                '.card-title': {
+                    marginBottom: theme('margin.1'),
+                    fontWeight: theme('fontWeight.semibold')
+                },
+                '.card-subtitle': {
+                    fontSize: theme('fontSize.sm'),
+                    color: theme('colors.gray.600'),
+                    marginBottom: theme('margin.2'),
+                },
+                '.card-text': {
+                    marginBottom: theme('margin.2')
+                },
             },
 
         }
@@ -31,7 +45,7 @@ module.exports = function({ addUtilities, addComponents, theme }) {
     const cardHorizontal = {
         '.card-horizontal': {
             backgroundColor: backgroundColor['white'],
-            maxWidth: theme('maxWidth.sm'),
+            maxWidth: '100%',
             borderWidth: theme('borderWidth.default'),
             borderColor: theme('borderColor.gray.400'),
             borderRadius: theme('borderRadius.default'),
@@ -62,9 +76,6 @@ module.exports = function({ addUtilities, addComponents, theme }) {
                 borderBottomLeftRadius: theme('borderRadius.default'),
                 borderBottomRightRadius: theme('borderRadius.default'),
                 padding: theme('padding.4'),
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
                 lineHeight: 1.5,
                 [`@media (min-width: ${theme('screens.md')})`]: {
                     borderBottomLeftRadius: theme('borderRadius.none'),
@@ -104,27 +115,27 @@ module.exports = function({ addUtilities, addComponents, theme }) {
         },
     }
     const cardShadow = {
-        '.card.card-no-shadow': {
+        '.card-no-shadow': {
             boxShadow: boxShadow['none']
         },
-        '.card.card-shadow': {
+        '.card-shadow': {
             boxShadow: boxShadow['lg']
         },
-        '.card.card-shadow-sm': {
+        '.card-shadow-sm': {
             boxShadow: boxShadow['sm']
         },
-        '.card.card-shadow-md': {
+        '.card-shadow-md': {
             boxShadow: boxShadow['md']
         },
-        '.card.card-shadow-lg': {
+        '.card-shadow-lg': {
             boxShadow: boxShadow['lg']
         },
-        '.card.card-shadow-xl': {
+        '.card-shadow-xl': {
             boxShadow: boxShadow['xl']
         }
     }
     const cardBordered = {
-        '.card.card-bordered': {
+        '.card-bordered': {
             borderWidth: theme('borderWidth.default'),
             borderColor: theme('borderColor.gray.300'),
             '.card-header': {

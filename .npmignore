@@ -1,0 +1,7 @@
+public/*
+!public/dist/
+!public/index.html
+!public/starter.html
+node_modules/
+package-lock.json
+mix-manifest.json

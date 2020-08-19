@@ -3,19 +3,19 @@
 # Instalation
 installation using npm
 ```shell
-> npm i --save tailwindui-iamlazy
+> npm i --save @tailwindcss/iamlazy
 ```
 or installation using yarn
 ```shell
-> yarn add tailwindui-iamlazy
+> yarn add @tailwindcss/iamlazy
 ```
 # Usage
-Add `require('tailwindui-iamlazy')` to the plugin section of the `tailwind.config.js` config file.
+Add `require('@tailwindcss/iamlazy')` to the plugin section of the `tailwind.config.js` config file.
 ```js
 module.exports = {
     ...
     plugins: [
-        require('tailwindui-iamlazy'),
+        require('@tailwindcss/iamlazy'),
         ...
     ],
     ...

@@ -1,3 +1,4 @@
+const { lightColor } = require('./../variables');
 module.exports = function({
     addUtilities,
     addComponents,
@@ -36,13 +37,31 @@ module.exports = function({
         'purple': '.badge-purple',
         'pink': '.badge-pink'
     }
+
+    // light
+    badge['.badge-light'] = {
+        backgroundColor: lightColor,
+        color: theme('colors.gray.700')
+    }
+    badge['a.badge-light:hover'] = {
+        backgroundColor: theme('backgroundColor.gray.200'),
+    }
+
+    // dark
+    badge['.badge-dark'] = {
+        backgroundColor: theme(`backgroundColor.gray.700`),
+        color: theme('colors.white')
+    }
+    badge['a.badge-dark:hover'] = {
+        backgroundColor: theme(`backgroundColor.black`),
+    }
     for (badgeColor in badgeColors) {
         badge[badgeColors[badgeColor]] = {
             backgroundColor: theme(`backgroundColor.${badgeColor}.500`),
-            color: theme('colors.white'),
-            '&:hover:not(.badge-no-hover)': {
-                backgroundColor: theme(`backgroundColor.${badgeColor}.600`),
-            }
+            color: theme('colors.white')
+        }
+        badge[`a${badgeColors[badgeColor].split(',').join(',a')}:hover`] = {
+            backgroundColor: theme(`backgroundColor.${badgeColor}.600`),
         }
     }
     addComponents([badge])
