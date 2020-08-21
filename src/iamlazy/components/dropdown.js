@@ -15,7 +15,8 @@ module.exports = function({
             position: 'relative',
             '&:hover,&.show': {
                 '.dropdown-menu': {
-                    display: 'block',
+                    opacity: '1',
+                    visibility: 'visible',
                 }
             },
             '.dropdown-toggle': {
@@ -34,7 +35,9 @@ module.exports = function({
             },
             '.dropdown-menu': {
                 position: 'absolute',
-                display: 'none',
+                transition: 'top .3s',
+                opacity: '0',
+                visibility: 'hidden',
                 backgroundColor: theme('backgroundColor.white'),
                 borderWidth: theme('borderWidth.default'),
                 borderColor: theme('borderColor.gray.300'),
