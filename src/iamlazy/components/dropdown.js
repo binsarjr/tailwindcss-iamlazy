@@ -13,10 +13,11 @@ module.exports = function({
         '.dropdown': {
             display: 'inline-block',
             position: 'relative',
-            '&:hover,&.show': {
+            '&.show': {
                 '.dropdown-menu': {
                     opacity: '1',
                     visibility: 'visible',
+                    transform: 'translate(0,0)',
                 }
             },
             '.dropdown-toggle': {
@@ -35,7 +36,9 @@ module.exports = function({
             },
             '.dropdown-menu': {
                 position: 'absolute',
-                transition: 'top .3s',
+                marginTop: theme('margin.2'),
+                transform: 'translateY(1.5rem)',
+                transition: '.3s',
                 opacity: '0',
                 visibility: 'hidden',
                 backgroundColor: theme('backgroundColor.white'),

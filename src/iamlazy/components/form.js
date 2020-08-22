@@ -35,7 +35,7 @@ module.exports = function({
         },
         '.form-control': {
             boxShadow: theme('boxShadow.sm'),
-            borderWidth: theme('borderWidth.default'),
+            // borderWidth: theme('borderWidth.default'),
             borderRadius: theme('borderRadius.default'),
             width: '100%',
             paddingTop: theme('padding.2'),
@@ -43,7 +43,11 @@ module.exports = function({
             paddingLeft: theme('padding.3'),
             paddingRight: theme('padding.3'),
             color: theme('colors.gray.700'),
-            lineHeight: 1.5
+            lineHeight: 1.5,
+            backgroundColor: theme('colors.gray.200'),
+            '&:focus': {
+                backgroundColor: theme('colors.white')
+            }
         },
         'select.form-control': {
             backgroundColor: theme('backgroundColor.white'),
