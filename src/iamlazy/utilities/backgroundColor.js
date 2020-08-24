@@ -27,13 +27,13 @@ module.exports = function({ addUtilities, addComponents, theme }) {
         }
 
         /**
+         * .bg-hover${bg-color}:hover,
          * a.{bg-color}:hover,
          * a.{bg-color}:focus,
          * button.{bg-color}:hover,
          * button.{bg-color}:focus
-         * 
          */
-        colors[`a${bgColors[bgColor].split(',').join(',a')}:hover,a${bgColors[bgColor].split(',').join(',a')}:focus,button${bgColors[bgColor].split(',').join(',button')}:hover,button${bgColors[bgColor].split(',').join(',button')}:focus`] = {
+        colors[`.bg-hover${bgColors[bgColor].split(',').join(',.bg-hover')}:hover,a${bgColors[bgColor].split(',').join(',a')}:hover,a${bgColors[bgColor].split(',').join(',a')}:focus,button${bgColors[bgColor].split(',').join(',button')}:hover,button${bgColors[bgColor].split(',').join(',button')}:focus`] = {
             backgroundColor: theme(`colors.${bgColor}.600`)
         }
     }
@@ -69,16 +69,29 @@ module.exports = function({ addUtilities, addComponents, theme }) {
         '.bg-asteroid': 'linear-gradient(to right, #0f2027, #203a43, #2c5364)',
 
     }
-    colors['.bg-slick-carbon']['backgroundBlendMode'] = 'multiply'
 
     for (bgGradient in bgGradientColor) {
         /**
          * .bg-{color}
          */
         colors[bgGradient] = {
-            backgroundImage: bgGradientColor[bgGradient]
+            backgroundImage: bgGradientColor[bgGradient],
+            opacity: '.7',
+            transition: 'all .2s'
+        }
+
+        /**
+         * .bg-hover${bg-color}:hover,
+         * a.{bg-color}:hover,
+         * a.{bg-color}:focus,
+         * button.{bg-color}:hover,
+         * button.{bg-color}:focus
+         */
+        colors[`.bg-hover${bgGradient}:hover,a${bgGradient}:hover,a${bgGradient}:focus,button${bgGradient}:hover,button${bgGradient}:focus`] = {
+            opacity: '1'
         }
     }
+    colors['.bg-slick-carbon']['backgroundBlendMode'] = 'multiply'
 
 
     addUtilities([colors], ['responsive', 'hover', 'focus'])
