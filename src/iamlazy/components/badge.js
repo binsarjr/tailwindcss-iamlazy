@@ -21,6 +21,9 @@ module.exports = function({
             whiteSpace: 'nowrap',
             verticalAlign: 'baseline',
             display: 'inline-block',
+            '&.badge-pill': {
+                borderRadius: theme('borderRadius.full')
+            }
         }
     }
 
