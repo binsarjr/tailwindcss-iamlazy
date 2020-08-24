@@ -17,6 +17,9 @@ module.exports = function({ addUtilities, addComponents, theme }) {
     }
 
     for (icolor in textColor) {
+        /**
+         * .{text-color}
+         */
         colors[textColor[icolor]] = {
             color: theme(`colors.${icolor}`)
         }
@@ -36,9 +39,20 @@ module.exports = function({ addUtilities, addComponents, theme }) {
         'pink': '.bg-pink'
     }
     for (bgColor in bgColors) {
+        /**
+         * .{bg-color}
+         */
         colors[bgColors[bgColor]] = {
             backgroundColor: theme(`colors.${bgColor}.500`)
         }
+
+        /**
+         * a.{bg-color}:hover,
+         * a.{bg-color}:focus,
+         * button.{bg-color}:hover,
+         * button.{bg-color}:focus
+         * 
+         */
         colors[`a${bgColors[bgColor].split(',').join(',a')}:hover,a${bgColors[bgColor].split(',').join(',a')}:focus,button${bgColors[bgColor].split(',').join(',button')}:hover,button${bgColors[bgColor].split(',').join(',button')}:focus`] = {
             backgroundColor: theme(`colors.${bgColor}.600`)
         }
