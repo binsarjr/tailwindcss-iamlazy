@@ -43,7 +43,7 @@ module.exports = function({
         backgroundColor: lightColor,
         color: theme('colors.gray.700')
     }
-    badge['a.badge-light:hover'] = {
+    badge['a.badge-light:hover:not(.disabled)'] = {
         backgroundColor: theme('backgroundColor.gray.200'),
     }
 
@@ -52,7 +52,7 @@ module.exports = function({
         backgroundColor: theme(`backgroundColor.gray.700`),
         color: theme('colors.white')
     }
-    badge['a.badge-dark:hover'] = {
+    badge['a.badge-dark:hover:not(.disabled)'] = {
         backgroundColor: theme(`backgroundColor.black`),
     }
     for (badgeColor in badgeColors) {
@@ -60,7 +60,7 @@ module.exports = function({
             backgroundColor: theme(`backgroundColor.${badgeColor}.500`),
             color: theme('colors.white')
         }
-        badge[`a${badgeColors[badgeColor].split(',').join(',a')}:hover`] = {
+        badge[`a${badgeColors[badgeColor].split(',').join(',a')}:hover:not(.disabled)`] = {
             backgroundColor: theme(`backgroundColor.${badgeColor}.600`),
         }
     }

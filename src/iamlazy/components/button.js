@@ -12,14 +12,35 @@ module.exports = function({
 }) {
     const button = {
         '.btn': {
-            fontWeight: theme('fontWeight.bold'),
-            paddingTop: theme('padding.2'),
-            paddingBottom: theme('padding.2'),
-            paddingRight: theme('padding.4'),
-            paddingLeft: theme('padding.4'),
-            borderRadius: theme('borderRadius.default'),
             display: 'inline-block',
-            transition: 'all .20s ease',
+            fontWeight: '400',
+            textAlign: 'center',
+            verticalAlign: 'middle',
+            userSelect: 'none',
+            backgroundColor: 'transparent',
+            border: '1px solid transparent',
+            padding: '.375rem .75rem',
+            fontSize: '1rem',
+            lineHeight: '1.5',
+            borderRadius: '.25rem',
+            transition: 'color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s',
+            '&:hover': {
+                textDecoration: 'none'
+            },
+            '&:focus,&.focus': {
+                outline: '0',
+                boxShadow: 'none'
+            },
+            '&.disabled,&:disabled': {
+                opacity: '.65',
+                cursor: 'not-allowed',
+            },
+            '&:not(:disabled):not(.disabled)': {
+                cursor: 'pointer',
+            }
+        },
+        'a.btn.disabled,fieldset:disabled a.btn': {
+            pointerEvents: 'none',
         },
         '.btn-block': {
             display: 'block',
@@ -48,40 +69,40 @@ module.exports = function({
     button['.btn-light'] = {
         backgroundColor: lightColor,
         color: theme('colors.gray.700'),
-        '&:hover:not(.btn-no-hover):not([disabled])': {
-            backgroundColor: theme(`backgroundColor.gray.300`),
+        '&:hover:not(.disabled):not(.btn-no-hover):not([disabled])': {
+            backgroundColor: theme(`colors.gray.300`),
         },
-        '&:focus': {
-            boxShadow: '0 0 3pt 2pt ' + theme(`backgroundColor.gray.300`),
+        '&:focus:not(.disabled):not(:disabled)': {
+            boxShadow: '0 0 3pt 2pt ' + theme(`colors.gray.300`),
             outline: '0'
         }
     }
 
     // dark
     button['.btn-dark'] = {
-        backgroundColor: theme(`backgroundColor.gray.700`),
+        backgroundColor: theme(`colors.gray.700`),
         color: theme('colors.white'),
-        '&:hover:not(.btn-no-hover):not([disabled])': {
-            backgroundColor: theme(`backgroundColor.black`),
+        '&:hover:not(.disabled):not(.btn-no-hover):not([disabled])': {
+            backgroundColor: theme(`colors.black`),
         },
-        '&:focus': {
-            boxShadow: '0 0 3pt 2pt ' + theme(`backgroundColor.gray.600`),
+        '&:focus:not(.disabled):not(:disabled)': {
+            boxShadow: '0 0 3pt 2pt ' + theme(`colors.gray.600`),
             outline: '0'
         }
     }
     for (buttonColor in buttonColors) {
         button[buttonColors[buttonColor]] = {
-            backgroundColor: theme(`backgroundColor.${buttonColor}.500`),
+            backgroundColor: theme(`colors.${buttonColor}.500`),
             color: theme('colors.white'),
-            '&:hover:not(.btn-no-hover):not([disabled])': {
-                backgroundColor: theme(`backgroundColor.${buttonColor}.700`),
+            '&:hover:not(.disabled):not(.btn-no-hover):not([disabled])': {
+                backgroundColor: theme(`colors.${buttonColor}.600`),
             },
             '&.btn-bordered': {
                 borderWidth: '1px',
-                borderColor: theme(`borderColor.${buttonColor}.700`)
+                borderColor: theme(`colors.${buttonColor}.600`)
             },
-            '&:focus': {
-                boxShadow: '0 0 3pt 2pt ' + theme(`backgroundColor.${buttonColor}.400`),
+            '&:focus:not(.disabled):not(:disabled)': {
+                boxShadow: '0 0 3pt 2pt ' + theme(`colors.${buttonColor}.400`),
                 outline: '0',
             }
         }
@@ -104,14 +125,14 @@ module.exports = function({
     // light
     button['.btn-outline-light'] = {
         borderWidth: '1px',
-        borderColor: theme('borderColor.gray.400'),
+        borderColor: theme('colors.gray.400'),
         color: theme('colors.gray.400'),
-        '&:hover:not(.btn-no-hover):not([disabled])': {
+        '&:hover:not(.disabled):not(.btn-no-hover):not([disabled])': {
             color: theme('colors.gray.700'),
             borderColor: lightColor,
             backgroundColor: lightColor,
         },
-        '&:focus': {
+        '&:focus:not(.disabled):not(:disabled)': {
             boxShadow: '0 0 3pt 2pt ' + theme('colors.gray.400'),
             outline: '0'
         }
@@ -120,13 +141,13 @@ module.exports = function({
     // dark
     button['.btn-outline-dark'] = {
         borderWidth: '1px',
-        borderColor: theme(`borderColor.gray.700`),
+        borderColor: theme(`colors.gray.700`),
         color: theme(`colors.gray.700`),
-        '&:hover:not(.btn-no-hover):not([disabled])': {
+        '&:hover:not(.disabled):not(.btn-no-hover):not([disabled])': {
             color: theme('colors.white'),
-            backgroundColor: theme(`backgroundColor.black`),
+            backgroundColor: theme(`colors.black`),
         },
-        '&:focus': {
+        '&:focus:not(.disabled):not(:disabled)': {
             boxShadow: '0 0 3pt 2pt ' + theme(`colors.gray.600`),
             outline: '0'
         }
@@ -135,23 +156,17 @@ module.exports = function({
     for (buttonOutlineColor in buttonOutlineColors) {
         button[buttonOutlineColors[buttonOutlineColor]] = {
             borderWidth: '1px',
-            borderColor: theme(`borderColor.${buttonOutlineColor}.500`),
+            borderColor: theme(`colors.${buttonOutlineColor}.500`),
             color: theme(`colors.${buttonOutlineColor}.500`),
-            '&:hover:not(.btn-no-hover):not([disabled])': {
+            '&:hover:not(.disabled):not(.btn-no-hover):not(:disabled)': {
                 color: theme(`colors.white`),
-                backgroundColor: theme(`backgroundColor.${buttonOutlineColor}.500`),
+                backgroundColor: theme(`colors.${buttonOutlineColor}.500`),
             },
-            '&:focus': {
-                boxShadow: '0 0 3pt 2pt ' + theme(`backgroundColor.${buttonColor}.400`),
+            '&:focus:not(.disabled):not(:disabled)': {
+                boxShadow: '0 0 3pt 2pt ' + theme(`colors.${buttonOutlineColor}.400`),
                 outline: '0'
             }
         }
-    }
-
-    // Button disable
-    button['.btn:disabled'] = {
-        opacity: '0.5',
-        cursor: 'not-allowed',
     }
 
     // Button Group

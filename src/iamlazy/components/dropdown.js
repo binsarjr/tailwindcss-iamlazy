@@ -13,12 +13,10 @@ module.exports = function({
         '.dropdown': {
             display: 'inline-block',
             position: 'relative',
-            '&.show': {
-                '.dropdown-menu': {
-                    opacity: '1',
-                    visibility: 'visible',
-                    transform: 'translate(0,0)',
-                }
+            '.dropdown-menu.show': {
+                opacity: '1',
+                visibility: 'visible',
+                transform: 'translate(0,0)',
             },
             '.dropdown-toggle': {
                 display: 'inline-flex',
@@ -54,8 +52,9 @@ module.exports = function({
                     paddingLeft: theme('padding.4'),
                     display: 'block',
                     width: '100%',
+                    color: '#16181b',
                     whiteSpace: 'nowrap',
-                    '&:hover': {
+                    '&:hover:not(.disabled)': {
                         backgroundColor: theme('backgroundColor.gray.200')
                     }
                 }
