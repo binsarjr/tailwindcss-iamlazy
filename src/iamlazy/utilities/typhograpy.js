@@ -13,8 +13,12 @@ module.exports = function({ addUtilities, addComponents, theme }) {
         'h4': { fontSize: theme('fontSize.3xl') },
         'h5': { fontSize: theme('fontSize.2xl') },
         'h6': { fontSize: theme('fontSize.xl') },
-        'p': { fontSize: theme('fontSize.base') },
-        'small': { fontSize: theme('fontSize.normal') },
+        'p': {
+            fontSize: theme('fontSize.base'),
+            fontWeight: theme('fontWeight.light'),
+            lineHeight: theme('lineHeight.relaxed')
+        },
+        'small': { fontWeight: theme('fontWeight.normal') },
     }
 
 
