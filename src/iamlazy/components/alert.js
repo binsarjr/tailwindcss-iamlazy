@@ -12,7 +12,8 @@ module.exports = function({
 }) {
     const alert = {
         '.alert': {
-            padding: theme('padding.5'),
+            padding: theme('padding.3'),
+            position: 'relative',
             width: '100%',
             borderRadius: theme('borderRadius.default')
         }
@@ -82,7 +83,7 @@ module.exports = function({
 
     for (alertColor in alertColors) {
         alert[`.alert${alertColors[alertColor]}`] = {
-            backgroundColor: theme(`backgroundColor.${alertColor}.100`),
+            backgroundColor: theme(`backgroundColor.${alertColor}.200`),
             borderRadius: theme('borderRadius.default'),
             fontSize: theme('fontSize.sm'),
             fontWeight: theme('fontWeight.medium'),
