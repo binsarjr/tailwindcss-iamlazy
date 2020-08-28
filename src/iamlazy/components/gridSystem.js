@@ -26,7 +26,7 @@ module.exports = function({ addUtilities, addComponents, e, prefix, config, them
     columnsResponsive = {}
     for (column in columns) {
         // className =  style
-        columnsResponsive[`.row ${column}`] = columns[column]
+        columnsResponsive[`${column}`] = columns[column]
     }
     addComponents(grid12)
     addUtilities(columnsResponsive, ['responsive'])
