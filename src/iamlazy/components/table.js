@@ -41,57 +41,200 @@ module.exports = function({
                     'th,td': {
                         padding: theme('padding.4')
                     }
+                },
+            },
+            '&.table-hover': {
+                tbody: {
+                    'tr:hover': {
+                        backgroundColor: theme('colors.gray.200')
+                    }
                 }
             },
-        }
-    }
-
-    const tableColor = {
-        '.table.table-dark': {
-            tr: {
-                backgroundColor: theme('colors.gray.800'),
-                color: theme('colors.gray.300'),
-                'th,td': {
-                    borderColor: '#454d55'
+            '&.table-striped': {
+                tbody: {
+                    'tr:nth-child(odd)': {
+                        backgroundColor: theme('colors.gray.200')
+                    }
                 }
             }
         }
     }
-    const tableHeaderFooterColor = {
-        '.table thead, .table tfoot': {
-            '&.thead-dark,&.tfoot-dark': {
+
+
+
+    const tableColor = {
+        '.table': {
+            '&.table-dark': {
+                backgroundColor: theme('colors.gray.800'),
                 tr: {
-                    backgroundColor: theme('colors.gray.800'),
-                    color: theme('colors.gray.300'),
+                    borderColor: '#454d55',
                     'th,td': {
+                        color: theme('colors.gray.300'),
+                        borderColor: '#454d55'
+                    },
+                },
+                '&.table-hover': {
+                    tbody: {
+                        'tr:hover': {
+                            backgroundColor: theme('colors.gray.700')
+                        }
+                    }
+                },
+                '&.table-striped': {
+                    tbody: {
+                        'tr:nth-child(odd)': {
+                            backgroundColor: theme('colors.gray.700')
+                        }
+                    }
+                }
+            },
+            '&.table-light': {
+                backgroundColor: theme('colors.gray.300'),
+                tr: {
+                    borderColor: '#dee2e6',
+                    'th,td': {
+                        color: theme('colors.gray.800'),
+                        borderColor: '#dee2e6'
+                    },
+                },
+                '&.table-hover': {
+                    tbody: {
+                        'tr:hover': {
+                            backgroundColor: theme('colors.gray.200')
+                        }
+                    }
+                },
+                '&.table-striped': {
+                    tbody: {
+                        'tr:nth-child(odd)': {
+                            backgroundColor: theme('colors.gray.200')
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    const tableColors = {
+        'blue': '&.table-primary',
+        'gray': '&.table-secondary',
+        'green': '&.table-success',
+        'orange': '&.table-orange',
+        'yellow': '&.table-warning',
+        'red': '&.table-danger',
+        'teal': '&.table-info',
+        'indigo': '&.table-indigo',
+        'purple': '&.table-purple',
+        'pink': '&.table-pink',
+    }
+
+    for (c in tableColors) {
+        tableColor['.table'][tableColors[c]] = {
+            backgroundColor: theme(`colors.${c}.500`),
+            tr: {
+                borderColor: '#dee2e6',
+                'th,td': {
+                    color: theme('colors.gray.100'),
+                    borderColor: '#dee2e6'
+                }
+            },
+            '&.table-hover': {
+                tbody: {
+                    'tr:hover': {
+                        backgroundColor: theme(`colors.${c}.400`)
+                    }
+                }
+            },
+            '&.table-striped': {
+                tbody: {
+                    'tr:nth-child(odd)': {
+                        backgroundColor: theme(`colors.${c}.400`)
+                    }
+                }
+            }
+        }
+    }
+
+
+    const tableHeaderFooterColor = {
+        '.table': {
+            'thead.thead-dark,tfoot.tfoot-dark': {
+                backgroundColor: theme('colors.gray.800'),
+                tr: {
+                    borderColor: '#454d55',
+                    'th,td': {
+                        color: theme('colors.gray.300'),
                         borderColor: '#454d55'
                     }
                 }
             },
-            '&.thead-light,&.tfoot-light': {
+            'thead.thead-light,tfoot.tfoot-light': {
+                backgroundColor: theme('colors.gray.300'),
                 tr: {
-                    backgroundColor: theme('colors.gray.300'),
-                    color: theme('colors.gray.800'),
+                    borderColor: '#dee2e6',
+                    'th,td': {
+                        color: theme('colors.gray.800'),
+                        borderColor: '#dee2e6'
+                    }
                 }
             }
         }
     }
+
+
+    const theadTfootColors = {
+        'blue': 'thead.thead-primary,tfoot.tfoot-primary',
+        'gray': 'thead.thead-secondary,tfoot.tfoot-secondary',
+        'green': 'thead.thead-success,tfoot.tfoot-success',
+        'orange': 'thead.thead-orange,tfoot.tfoot-orange',
+        'yellow': 'thead.thead-warning,tfoot.tfoot-warning',
+        'red': 'thead.thead-danger,tfoot.tfoot-danger',
+        'teal': 'thead.thead-info,tfoot.tfoot-info',
+        'indigo': 'thead.thead-indigo,tfoot.tfoot-indigo',
+        'purple': 'thead.thead-purple,tfoot.tfoot-purple',
+        'pink': 'thead.thead-pink,tfoot.tfoot-pink',
+    }
+
+    for (theadTfootColor in theadTfootColors) {
+        tableHeaderFooterColor[theadTfootColors[theadTfootColor]] = {
+            backgroundColor: theme(`colors.${theadTfootColor}.500`),
+            tr: {
+                borderColor: '#dee2e6',
+                'th,td': {
+                    color: theme('colors.gray.100'),
+                    borderColor: '#dee2e6'
+                }
+            }
+        }
+    }
+
+    tableHeaderFooterColor[theadTfootColors['orange']]['tr']['th,td']['color'] = theme('colors.gray.800')
+    tableHeaderFooterColor[theadTfootColors['yellow']]['tr']['th,td']['color'] = theme('colors.gray.800')
+
+
+
+
 
     const tableResponsive = {
         '.table-responsive': {
             display: 'block',
             overflowX: 'auto',
         },
-        '.table-bordered': {
+        'table.table-bordered': {
             'th,td': {
                 borderWidth: '1px',
             }
         },
-        '.table-borderless': {
-            'th,td': {
+        'table.table-borderless': {
+            tr: {
                 borderWidth: '0',
+                'th,td': {
+                    borderWidth: '0',
+                }
             }
-        }
+        },
     }
 
     addComponents([table, tableColor, tableHeaderFooterColor])
