@@ -21,8 +21,7 @@ module.exports = function({
             'thead,tfoot': {
                 tr: {
                     color: theme('colors.gray.800'),
-                    borderWidth: '1px',
-                    borderBottomWidth: '0',
+                    borderWidth: '0',
                     'th,td': {
                         paddingTop: theme('padding.3'),
                         paddingRight: theme('padding.4'),
@@ -31,9 +30,16 @@ module.exports = function({
                     }
                 },
             },
+            thead: {
+                borderBottomWidth: '2px',
+            },
+            tfoot: {
+                borderTopWidth: '2px',
+            },
             'tbody': {
                 tr: {
-                    borderWidth: '1px',
+                    borderWidth: '0',
+                    borderBottomWidth: '1px',
                     color: theme('colors.gray.700'),
                     fontSize: theme('fontSize.light'),
                     whiteSpace: 'nowrap',
