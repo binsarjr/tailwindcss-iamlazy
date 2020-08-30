@@ -1,3 +1,5 @@
+const { wrap } = require("lodash")
+
 module.exports = function({
     addUtilities,
     addComponents,
@@ -31,18 +33,21 @@ module.exports = function({
                 },
             },
             thead: {
+                borderTopWidth: '1px',
                 borderBottomWidth: '2px',
             },
             tfoot: {
                 borderTopWidth: '2px',
+                borderBottomWidth: '1px'
             },
             'tbody': {
                 tr: {
                     borderWidth: '0',
                     borderBottomWidth: '1px',
+                    borderTopWidth: '1px',
                     color: theme('colors.gray.700'),
                     fontSize: theme('fontSize.light'),
-                    whiteSpace: 'nowrap',
+                    whiteSpace: 'wrap',
                     width: '100%',
                     'th,td': {
                         padding: theme('padding.4')
