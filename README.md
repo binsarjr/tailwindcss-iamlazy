@@ -1,3 +1,6 @@
+# Not Ready
+
+
 # I am Lazy
 **I am Lazy** is a tailwindcss plugin built with a large collection of utilities and components.
 # Instalation
